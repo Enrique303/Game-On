@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
 
 const User = require('../../models/User')
 
@@ -28,7 +29,9 @@ router.post('/', [
       email,
       password
     });
-    user.save();
+
+    user.password = await bcrypt.hash(password, 10)
+    await user.save();
 
     res.send('User registered')
   } catch (err) {
