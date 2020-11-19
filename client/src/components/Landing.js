@@ -5,9 +5,11 @@ import img from '../img/retrocontroller.jpg'
 
 const StyledLanding = styled.div`
   .landing {
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
     position: relative;
     background: url(${img}) no-repeat center center/cover;
     height: 100vh;
+    font-family: 'Roboto', sans-serif;
   }
   .landing-inner {
     height: 100%;
@@ -41,6 +43,9 @@ const StyledLanding = styled.div`
     margin-right: 0.5rem;
     transition: opacity 0.2s ease-in;
     outline: none;
+  }
+  @media all and (max-width: 600px) {  
+     
   }
 `;
 

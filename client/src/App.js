@@ -10,8 +10,8 @@ function App() {
   return (
     <Router>
       <Fragment>
-        <Navbar />
         <Route exact path="/" component= { Landing  } />
+        <Navbar />
         <Switch>
           <Route exact path='/login' component={ Login } />
           <Route exact path='/register' component={ Register } />
