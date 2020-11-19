@@ -6,26 +6,36 @@ const StyledNav = styled.div`
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
     font-family: 'Montserrat', sans-serif;
   }
-  .container {
+  nav {
     display: flex;
-    background-color: #8a8a8a;
-    color: #ffffff;
-    padding:10px;
-    margin: 0;
+    justify-content: space-between;
+    align-items: center;
     list-style-type: none;
+    background-color: #365675;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .container {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    padding: 10px;
+    list-style-type:none;
   }
   .search {
-    flex: 8;
+    flex: 7;
   }
   .search-input {
-    width:1200px;
+    width:100%;
   }
   .home {
     flex:1;
   }
   .profile {
     flex:1;
-    width:100%;
+    padding:10px;
   }
 
   @media all and (max-width: 600px) {  
