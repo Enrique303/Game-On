@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledNav = styled.div`
@@ -62,11 +63,15 @@ const Navbar = () => {
     <StyledNav>
       <nav>
         <ul className = "container">
-          <li className = "home">Home</li>
+          <li className = "home">
+            <Link to='/home'>Home</Link>
+          </li>
           <li className = "search">
             <input type= "text" className = "search-input" placeholder = "Search" />
           </li>
-          <li className = "profile">My Profile</li>
+          <li className = "profile">
+            <Link to ='/myprofile'>My Profile</Link>
+          </li>
         </ul>
       </nav>
     </StyledNav>

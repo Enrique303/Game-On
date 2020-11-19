@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import img from '../img/retrocontroller.jpg'
 
@@ -54,8 +55,8 @@ const Landing = () => {
               Find a Game and Add It To Your List!
             </p>
             <div className= "buttons">
-              <a href ="#">Sign Up</a>
-              <a href ="#">Login</a>
+              <Link to ='/register'>Sign Up</Link>
+              <Link to ='/login'>Login</Link>
             </div>
           </div>
         </div>
