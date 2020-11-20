@@ -43,7 +43,7 @@ const Register = () => {
 
   return (
     <StyledRegister>
-      <h1>Create Your Account</h1>
+      <h1>Create An Account</h1>
       <form className='form' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <input
