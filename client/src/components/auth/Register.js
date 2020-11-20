@@ -17,12 +17,27 @@ const Register = () => {
   const { name, email, password, password2 } = formInfo;
   const onChange = e => setFormInfo({ ...formInfo, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
     if (password !== password2) {
       alert('Passwords do not match');
     } else {
-      console.log(formInfo);
+      const newUser = {
+        name,
+        email,
+        password
+      };
+      try {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+        const body = JSON.stringify(newUser);
+        const res = await axios.post('/api/user', body, config);
+      } catch (error) {
+        console.error(error.res.data);
+      }
     }
   }
 
