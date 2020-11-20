@@ -17,17 +17,7 @@ const Login = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-      const body = JSON.stringify();
-      const res = await axios.post('/api/auth', body, config);
-    } catch (error) {
-      console.error(error.res.data);
-    }
+    
   }
 
   return (
