@@ -12,7 +12,6 @@ const StyledNav = styled.div`
     justify-content: space-between;
     align-items: center;
     list-style-type: none;
-    background-color: #365675;
     color: #ffffff;
     font-size: 15px;
     font-weight: 500;
