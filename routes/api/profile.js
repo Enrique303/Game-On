@@ -26,7 +26,9 @@ router.post('/', auth, async (req, res) => {
   profileFields.user = req.user.id;
   if(bio) profileFields.bio = bio;
   if(location) profileFields.location = location;
-  if(games) profileFields.games = games;
+  if(games) {
+    profileFields.games = games.split(',').map(games => games.trim());
+  } 
 
   profileFields.social ={}
   if(youtube) profileFields.social.youtube = youtube;
@@ -39,7 +41,7 @@ router.post('/', auth, async (req, res) => {
 
     //Update
     if (profile) {
-      profile= await Profile.findByIdAndUpdate(
+      profile= await Profile.findOneAndUpdate(
         { user:req.user.id },
         { $set:profileFields },
         { new: true }

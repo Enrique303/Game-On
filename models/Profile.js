@@ -12,7 +12,7 @@ const ProfileSchema = new mongoose.Schema({
     type: String
   },
   games: {
-    type: String,
+    type: [String],
   },
   social: {
     youtube: {
