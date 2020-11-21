@@ -7,69 +7,61 @@ const StyledNav = styled.div`
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
     font-family: 'Montserrat', sans-serif;
   }
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style-type: none;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 500;
-  }
-  .container {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    width:100%;
-    padding: 10px;
-    list-style-type:none;
-  }
-  .search {
-    flex: 7;
-  }
-  .search-input {
-    width:100%;
-  }
-  .home {
-    flex:1;
-  }
-  .profile {
-    flex:1;
-    padding:10px;
-  }
+  .navigation {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0; 
+  background: #707070;
+}
+.navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+}
 
-  @media all and (max-width: 600px) {  
-    
-    .container {  
-      flex-wrap: wrap; 
-      text-align: center; 
-    }  
-      
-    .container > li {  
-      flex-basis: 100%;  
-    }
-    .search {
-      order: 1;
-    }
-    .search-input {
-      width: 100%;
-    }
+.navigation a:hover {
+  background: #1565C0;
+}
+
+@media all and (max-width: 800px) {
+  .navigation {
+    justify-content: space-around;
   }
+}
+
+@media all and (max-width: 600px) {
+  .navigation {
+    flex-flow: column wrap;
+    padding: 0;
+  }
+  .navigation a { 
+    text-align: center; 
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255,0.3); 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+  }
+  .navigation li:last-of-type a {
+    border-bottom: none;
+  }
+}
 `;
 
 const Navbar = () => {
   return (
     <StyledNav>
       <nav>
-        <ul className = "container">
-          <li className = "home">
+        <ul className="navigation">
+          <li>
             <Link to='/home'>Home</Link>
           </li>
-          <li className = "search">
-            <input type= "text" className = "search-input" placeholder = "Search" />
+          <li>
+            <Link to='/myprofile'>My List</Link>
           </li>
-          <li className = "profile">
-            <Link to ='/myprofile'>My Profile</Link>
+          <li>
+            <Link to='/myprofile'>My Profile</Link>
           </li>
         </ul>
       </nav>
