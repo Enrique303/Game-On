@@ -52,6 +52,25 @@ const Login = () => {
   const onSubmit = async e => {
     e.preventDefault();
 
+    const User = {
+
+      email,
+      password
+    };
+
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+      const body = JSON.stringify(User);
+      const res = await axios.post('/api/auth', body, config);
+      console.log("success")
+    } catch (error) {
+      console.error(error.res.data);
+    }
+
   }
 
   return (
@@ -84,7 +103,7 @@ const Login = () => {
             value='Login' />
         </form>
         <p>
-          Don't have an account? <Link to='/register'>Sign up</Link>
+          Don't have an account? <Link to='/register'>SIGN UP</Link>
         </p>
       </section>
     </StyledLogin>

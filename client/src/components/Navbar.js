@@ -63,6 +63,12 @@ const Navbar = () => {
           <li>
             <Link to='/myprofile'>My Profile</Link>
           </li>
+          <li>
+            <Link to='/register'>Register</Link>
+          </li>
+          <li>
+            <Link to='/login'>Login</Link>
+          </li>
         </ul>
       </nav>
     </StyledNav>

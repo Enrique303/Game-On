@@ -70,6 +70,7 @@ const Register = () => {
         }
         const body = JSON.stringify(newUser);
         const res = await axios.post('/api/user', body, config);
+        console.log("user registered")
       } catch (error) {
         console.error(error.res.data);
       }
@@ -125,7 +126,7 @@ const Register = () => {
             value='Register' />
         </form>
         <p>
-          Already have an account? <Link to='/login'>Sign In</Link>
+          Already have an account? <Link to='/login'>SIGN IN</Link>
         </p>
       </section>  
     </StyledRegister>

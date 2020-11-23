@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Landing from './components/Landing'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
+import Profile from './components/Profile'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Fragment>
         <Route exact path="/" component= { Landing  } />
         <Navbar />
+        <Route exact path="/myprofile" component= { Profile  } />
         <Switch>
           <Route exact path='/login' component={ Login } />
           <Route exact path='/register' component={ Register } />
