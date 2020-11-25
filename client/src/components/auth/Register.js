@@ -76,7 +76,6 @@ const Register = () => {
       }
     }
   }
-
   return (
     <StyledRegister>
       <section className='container'>

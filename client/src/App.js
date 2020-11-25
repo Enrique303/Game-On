@@ -6,6 +6,7 @@ import Landing from './components/Landing'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import Profile from './components/Profile'
+import Home from './components/Home'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Navbar />
         <Route exact path="/myprofile" component= { Profile  } />
         <Switch>
+          <Route exact path='/home' component={ Home } />
           <Route exact path='/login' component={ Login } />
           <Route exact path='/register' component={ Register } />
         </Switch>
