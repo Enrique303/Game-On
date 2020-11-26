@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import GameContext from '../utils/GameContext'
 import styled from 'styled-components';
 
 const StyleSearchBar = styled.div`
@@ -27,6 +28,7 @@ const StyleSearchBar = styled.div`
 `;
 
 const SearchBar = () => {
+  const { search, handleInputChange, handleFormSubmit } = useContext(GameContext);
 
   return (
     <StyleSearchBar>
@@ -37,10 +39,10 @@ const SearchBar = () => {
         type="text"
         placeholder = "Search for a Game"
         id="search"
-        onChange={ e=> onChange(e) }
+        onChange={ handleInputChange } 
         />
         <br />
-        <button onSubmit={e => onSubmit(e)}>Search</button>
+        <button onClick={ handleFormSubmit }>Search</button>
       </div>
     </StyleSearchBar>
   )
