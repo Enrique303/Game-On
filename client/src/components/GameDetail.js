@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { Fragment, useContext } from 'react';
 import GameContext from '../utils/GameContext'
 import SearchBar from './SearchBar';
 import styled from 'styled-components'
@@ -9,12 +9,14 @@ const GameDetail = () => {
    const {
       result:{name, background_image, released}
     } = useContext(GameContext);
-
    return (
       <StyleGameDetail>
-      <div className="card">
+      <Fragment>
         <SearchBar />
-      </div>
+        <h4>{name}</h4>
+        <img src= {background_image}/>
+        <h4>release {released}</h4>
+      </Fragment>
     </StyleGameDetail>
    )
 }

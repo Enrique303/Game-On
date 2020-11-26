@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import API from '../utils/API'
+import APITWO from '../utils/APITWO'
 import GameContext from '../utils/GameContext'
 import GameDetail from './GameDetail'
 
@@ -11,10 +12,22 @@ const Home = () => {
   useEffect(() => {
     searchGames('');
   }, []);
+  useEffect(() => {
+    topGames('');
+  }, []);
 
   const searchGames = async (query) => {
     try {
       const res = await API.search(query);
+      console.log("BookContainer -> res", res.data)
+      setResult(res.data);
+    } catch (error) {
+      console.log("there was an error processing your results")
+    }
+  };
+  const topGames = async () => {
+    try {
+      const res = await APITWO.search();
       console.log("BookContainer -> res", res.data)
       setResult(res.data);
     } catch (error) {
