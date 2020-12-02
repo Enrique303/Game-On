@@ -56,10 +56,7 @@ const Navbar = ({ auth:{isAuth, loading}, logout }) => {
   const guestLinks = (
     <ul className="navigation">
           <li>
-            <Link to='/home'>Home</Link>
-          </li>
-          <li>
-            <Link to='/register'>Register</Link>
+            <Link to='/register'>Sign Up</Link>
           </li>
           <li>
             <Link to='/login'>Login</Link>
