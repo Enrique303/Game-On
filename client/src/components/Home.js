@@ -19,7 +19,7 @@ const Home = () => {
   const searchGames = async (query) => {
     try {
       const res = await API.search(query);
-      console.log("BookContainer -> res", res.data)
+      console.log("GameContainer -> res", res.data)
       setResult(res.data);
     } catch (error) {
       console.log("there was an error processing your results")
@@ -28,7 +28,7 @@ const Home = () => {
   const topGames = async () => {
     try {
       const res = await APITWO.search();
-      console.log("BookContainer -> res", res.data)
+      console.log("GameContainer -> res", res.data)
       setResult(res.data);
     } catch (error) {
       console.log("there was an error processing your results")

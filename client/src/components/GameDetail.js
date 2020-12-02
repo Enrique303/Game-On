@@ -13,9 +13,6 @@ const GameDetail = () => {
       <StyleGameDetail>
       <Fragment>
         <SearchBar />
-        <h4>{name}</h4>
-        <img src= {background_image}/>
-        <h4>release {released}</h4>
       </Fragment>
     </StyleGameDetail>
    )
