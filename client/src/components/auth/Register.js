@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import {  setAlert } from '../../actions/alert';
+import PropTypes from 'prop-types'
+
 
 const StyledRegister = styled.div`
   .form .form-group {
@@ -42,7 +45,7 @@ const StyledRegister = styled.div`
 }
 `;
 
-const Register = () => {
+const Register = (props) => {
   const [formInfo, setFormInfo] = useState({
     name: '',
     email: '',
@@ -55,25 +58,9 @@ const Register = () => {
   const onSubmit = async e => {
     e.preventDefault();
     if (password !== password2) {
-      alert('Passwords do not match');
+      props.setAlert('Passwords do not match', 'danger');
     } else {
-      const newUser = {
-        name,
-        email,
-        password
-      };
-      try {
-        const config = {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }
-        const body = JSON.stringify(newUser);
-        const res = await axios.post('/api/user', body, config);
-        console.log("user registered")
-      } catch (error) {
-        console.error(error.res.data);
-      }
+      
     }
   }
   return (
@@ -131,5 +118,7 @@ const Register = () => {
     </StyledRegister>
   )
 }
-
-export default Register
+Register.propTypes = {
+  setAlert:PropTypes.func.isRequired,
+};
+export default connect(null, { setAlert })(Register);

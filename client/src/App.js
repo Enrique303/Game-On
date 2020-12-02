@@ -7,6 +7,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Profile from './components/Profile';
 import Home from './components/Home';
+import Alert from './components/Alert';
 import { Provider } from 'react-redux';
 import store from './store'
 
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/" component= { Landing  } />
           <Navbar />
           <Route exact path="/myprofile" component= { Profile  } />
+          <Alert />
           <Switch>
             <Route exact path='/home' component={ Home } />
             <Route exact path='/login' component={ Login } />

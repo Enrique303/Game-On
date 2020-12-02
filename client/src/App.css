@@ -2,3 +2,7 @@
   padding: 0;
   margin: 0;
 }
+
+.danger {
+  background-color: rgba(212, 16, 16, 0.822);
+}
