@@ -11,6 +11,7 @@ const StyledLanding = styled.div`
     height: 100vh;
     font-family: 'Roboto', sans-serif;
   }
+  ${img} {opacity: 0.5;}
   .landing-inner {
     height: 100%;
     width: 80%;
