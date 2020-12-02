@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { logout } from '../actions/register'
 
 const StyledNav = styled.div`
   * {
@@ -49,11 +52,23 @@ const StyledNav = styled.div`
 }
 `;
 
-const Navbar = () => {
-  return (
-    <StyledNav>
-      <nav>
-        <ul className="navigation">
+const Navbar = ({ auth:{isAuth, loading}, logout }) => {
+  const guestLinks = (
+    <ul className="navigation">
+          <li>
+            <Link to='/home'>Home</Link>
+          </li>
+          <li>
+            <Link to='/register'>Register</Link>
+          </li>
+          <li>
+            <Link to='/login'>Login</Link>
+          </li>
+        </ul>
+  );
+
+  const loginLinks = (
+    <ul className="navigation">
           <li>
             <Link to='/home'>Home</Link>
           </li>
@@ -64,15 +79,27 @@ const Navbar = () => {
             <Link to='/myprofile'>My Profile</Link>
           </li>
           <li>
-            <Link to='/register'>Register</Link>
-          </li>
-          <li>
-            <Link to='/login'>Login</Link>
+            <a onClick={logout} href="#">Logout</a>
           </li>
         </ul>
+  );
+
+  return (
+    <StyledNav>
+      <nav>
+        { !loading && (<>{ isAuth ? loginLinks : guestLinks}</>) }
       </nav>
     </StyledNav>
   )
 }
 
-export default Navbar
+Navbar.propTypes ={
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(mapStateToProps, { logout })(Navbar)
