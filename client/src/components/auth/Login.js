@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import {  login } from '../../actions/register';
+import PropTypes from 'prop-types';
 
 const StyledLogin = styled.div`
   .form .form-group {
@@ -41,7 +44,7 @@ const StyledLogin = styled.div`
 }
 `;
 
-const Login = () => {
+const Login = (props) => {
   const [formInfo, setFormInfo] = useState({
     email: '',
     password: '',
@@ -51,28 +54,11 @@ const Login = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-
-    const User = {
-
-      email,
-      password
-    };
-
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-      const body = JSON.stringify(User);
-      const res = await axios.post('/api/auth', body, config);
-      console.log("success")
-    } catch (error) {
-      console.error(error.res.data);
-    }
-
+    props.login(email, password)
   }
-
+  if (props.isAuth) {
+    return <Redirect to ="/home"/>;
+  }
   return (
     <StyledLogin>
       <section className= 'container'>
@@ -110,4 +96,13 @@ const Login = () => {
   )
 }
 
-export default Login;
+Login.propTypes = {
+  login: PropTypes.func.isRequired,
+  isAuth:PropTypes.bool
+};
+
+const mapStateToProps = state => ({
+  isAuth: state.auth.isAuth
+})
+
+export default connect(mapStateToProps, { login })(Login);
