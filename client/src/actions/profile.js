@@ -1,0 +1,19 @@
+import axios from 'axios';
+import { setAlert } from './alert';
+import { GET_PROFILE, PROFILE_FAIL } from './constants';
+
+export const getUserProfile = () => async dispatch => {
+   try {
+      const res = await axios.get('/api/profile/myprofile');
+
+      dispatch({
+         type: GET_PROFILE,
+         payload: res.data,
+      });
+   } catch (err) {
+      dispatch({
+         type: PROFILE_FAIL,
+         payload: { msg: err.response.statusText, status: err.response.status }
+      });
+   }
+}
