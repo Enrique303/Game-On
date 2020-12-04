@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {  createProfile } from '../actions/profile'
@@ -117,7 +118,7 @@ const Profile = ({ createProfile }) => {
             Zelda, Halo, Last of Us, Sonic)
           </small>
         </div>
-        <div className="my-2">
+        <div>
           <button onClick={() => toggleSocial(!displaySocial)}type="button" className="btn">
             Add Social Network Links
           </button>
@@ -144,7 +145,7 @@ const Profile = ({ createProfile }) => {
         }
         
         <input type="submit" className="btn" />
-        <a className="btn btn-light my-1" href="dashboard.html">Go Back</a>
+        <Link className="btn" to="/home">Go Back</Link>
       </form>
     </StyledForm>
   )
