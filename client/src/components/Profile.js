@@ -2,6 +2,72 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {  createProfile } from '../actions/profile'
+import styled from 'styled-components';
+
+const StyledForm = styled.div`
+  .form .form-group {
+  margin: 1.2rem 0;
+}
+
+.form  {
+  display: block;
+  margin-top: 0.3rem;
+  color: #888;
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+}
+
+.form input,
+.form textarea {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+.form input[type='submit'],
+button {
+  font: inherit;
+}
+
+.form .social-input {
+  display: flex;
+}
+
+.form .social-input i {
+  padding: 0.5rem;
+  width: 4rem;
+}
+
+.form .social-input i.fa-twitter {
+  color: #38a1f3;
+}
+.form .social-input i.fa-instagram {
+  color: #3f729b;
+}
+.form .social-input i.fa-youtube {
+  color: #c4302b;
+}
+.form .social-input i.fa-twitch {
+  color: #9147fe;
+}
+.btn {
+  display: inline-block;
+  color: #333;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+}
+`;
 
 const Profile = ({ createProfile }) => {
   const [formInfo, setFormInfo] = useState({
@@ -32,7 +98,7 @@ const Profile = ({ createProfile }) => {
     createProfile(formInfo)
   };
   return (
-    <>
+    <StyledForm>
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e => onChange(e)}></textarea>
@@ -67,7 +133,7 @@ const Profile = ({ createProfile }) => {
             <input type="text" placeholder="Twitter URL" name="twitter" value={twitter} onChange={e => onChange(e)}/>
           </div>
           <div className="form-group social-input">
-            <i className="fab fa-twitter fa"></i>
+            <i className="fab fa-twitch fa"></i>
             <input type="text" placeholder="Twitch URL" name="twitch" value={twitch} onChange={e => onChange(e)}/>
           </div>
           <div className="form-group social-input">
@@ -80,7 +146,7 @@ const Profile = ({ createProfile }) => {
         <input type="submit" className="btn" />
         <a className="btn btn-light my-1" href="dashboard.html">Go Back</a>
       </form>
-    </>
+    </StyledForm>
   )
 }
 
