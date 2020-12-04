@@ -16,9 +16,10 @@ const Home = ({ getUserProfile, auth:{user}, profile: {profile, loading} }) => {
   {profile !== null ? (
     <>
     has
-    </> ): (<>
+    </> 
+  ) : (<>
     <p>Set up your Profile</p>
-    <Link to='./create-profile' className='btn'>Create</Link>
+    <Link to='./profile' className='btn'>Create</Link>
     </>
   )}
   </>)

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { BrowserRouter as Router,Switch, Route,Link } from "react-router-dom";
+import { BrowserRouter as Router,Switch, Route, } from "react-router-dom";
 import './App.css';
 import Navbar from './components/Navbar';
 import Landing from './components/Landing';
@@ -30,12 +30,12 @@ const App = () => {
         <Fragment>
           <Route exact path="/" component= { Landing  } />
           <Navbar />
-          <Route exact path="/myprofile" component= { Profile  } />
           <Alert />
           <Switch>
             <Route exact path='/login' component={ Login } />
             <Route exact path='/register' component={ Register } />
             <PrivateRoute exact path='/home' component={ Home } />
+            <PrivateRoute exact path='/profile' component={ Profile } />
           </Switch>
         </Fragment>
       </Router>
