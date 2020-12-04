@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {  createProfile } from '../actions/profile'
@@ -70,7 +70,7 @@ button {
 }
 `;
 
-const Profile = ({ createProfile }) => {
+const Profile = ({ createProfile, history }) => {
   const [formInfo, setFormInfo] = useState({
     bio: '',
     location: '', 
@@ -96,7 +96,7 @@ const Profile = ({ createProfile }) => {
   const onChange = e => setFormInfo({...formInfo, [e.target.name]: e.target.value });
   const onSubmit = e =>{
     e.prevent.Default();
-    createProfile(formInfo)
+    createProfile(formInfo, history)
   };
   return (
     <StyledForm>
@@ -145,7 +145,7 @@ const Profile = ({ createProfile }) => {
         }
         
         <input type="submit" className="btn" />
-        <Link className="btn" to="/home">Go Back</Link>
+        <Link to="/home">Go Back</Link>
       </form>
     </StyledForm>
   )
@@ -155,4 +155,4 @@ Profile.propTypes = {
   createProfile: PropTypes.func.isRequired
 }
 
-export default connect(null, { createProfile })(Profile);
+export default connect(null, { createProfile })(withRouter(Profile));
