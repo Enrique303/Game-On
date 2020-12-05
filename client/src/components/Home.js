@@ -15,8 +15,6 @@ const Home = ({ getUserProfile, auth:{user}, profile: {profile, loading} }) => {
   return loading && profile === null ? <Loading /> : (<>
     <p className='main'>Welcome {user && user.name}</p>
     <SearchBar/>
-
-    
     </>
   )
 }

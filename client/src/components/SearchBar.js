@@ -49,14 +49,14 @@ const SearchBar = () => {
 
   const onClick = e =>{
     searchGames(searchInfo);
-    console.log(searchGames());
+    console.log(searchInfo);
   };
 
   return (
     <StyleSearchBar>
       <header>
         <div className='search-box'>
-          <input className='form-control' id='searchStr' placeholder='Search' name="search" onChange={handleInputChange} />
+          <input className='form-control' id='searchStr' placeholder='Search' name="search"  onChange={handleInputChange} />
           <button className='btn' type='button' onClick={e => onClick(e)}><i className='fas fa-search'></i></button>
         </div>
       </header>
