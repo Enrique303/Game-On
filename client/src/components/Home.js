@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Loading from './Loading'
 import { getUserProfile } from '../actions/profile';
 import PropTypes from 'prop-types';
+import SearchBar from './SearchBar';
 
 const Home = ({ getUserProfile, auth:{user}, profile: {profile, loading} }) => {
   useEffect(()=>{
@@ -12,17 +13,12 @@ const Home = ({ getUserProfile, auth:{user}, profile: {profile, loading} }) => {
 
   
   return loading && profile === null ? <Loading /> : (<>
-  <p className='main'>Welcome {user && user.name}</p>
-  {profile !== null ? (
-    <>
-    has
-    </> 
-  ) : (<>
-    <p>Set up your Profile</p>
-    <Link to='./profile' className='btn'>Create</Link>
+    <p className='main'>Welcome {user && user.name}</p>
+    <SearchBar/>
+
+    
     </>
-  )}
-  </>)
+  )
 }
 
 

@@ -1,49 +1,46 @@
-import React, { useContext } from 'react';
-import GameContext from '../utils/GameContext'
+import React from 'react';
 import styled from 'styled-components';
 
 const StyleSearchBar = styled.div`
-  display: flex;
-  border: 1px solid #333333;
-  padding: 10px;
-  margin: 20px;
-  width: 100%;
-  .form-group {
-    display:flex;
-    flex-direction: column;
-    width:100%;
-
-    input {
-      height: 30px;
-      outline:none;
-    }
-    button {
-      height: 28px;
-      border-radius: 5px;
-      background-color: grey;
-      color: #fff;
-      font-size: 15px;
-    }
-  }
+  header{
+background: lightgray;
+padding: 20px;
+}
+.search-box{
+display: flex;
+background: white;
+border-radius: 18px;
+overflow: hidden;
+}
+.search-box .form-control{
+width:100%;
+border: 0;
+height: 36px;
+padding:0 10px;
+outline: 0;
+}
+.search-box .btn{
+background: white;
+border:1px solid #000;
+height: 36px;
+padding: 10px;
+margin-right: 10px;
+border: 0;
+cursor: pointer;
+outline: 0;
+}
 `;
 
 const SearchBar = () => {
-  const { search, handleInputChange, handleFormSubmit } = useContext(GameContext);
 
   return (
     <StyleSearchBar>
-      <div className="form-group">
-        <input
-        value = {search}
-        name= "search"
-        type="text"
-        placeholder = "Search for a Game"
-        id="search"
-        onChange={ handleInputChange } 
-        />
-        <br />
-        <button onClick={ handleFormSubmit }>Search</button>
-      </div>
+      <header>
+        <div className='search-box'>
+          <input className='form-control' id='searchStr' placeholder='Search' />
+          <button className='btn btn-outline-success' type='button'><i className='fas fa-search'></i></button>
+        </div>
+      </header>
     </StyleSearchBar>
   )
 }

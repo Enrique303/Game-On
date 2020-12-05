@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, Redirect, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {  createProfile } from '../actions/profile'
@@ -96,11 +96,12 @@ const Profile = ({ createProfile, history }) => {
   const onChange = e => setFormInfo({...formInfo, [e.target.name]: e.target.value });
   const onSubmit = e =>{
     e.prevent.Default();
-    createProfile(formInfo, history)
+    createProfile(formInfo, history);
+    <Redirect to= '/home'/>
   };
   return (
     <StyledForm>
-      <form className="form" onSubmit={e => onSubmit(e)}>
+      <form className="form">
         <div className="form-group">
           <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e => onChange(e)}></textarea>
           <small className="form-text">Tell us a little about yourself</small>
@@ -144,7 +145,7 @@ const Profile = ({ createProfile, history }) => {
         </>
         }
         
-        <input type="submit" className="btn" />
+        <input type="submit" className="btn" onSubmit={e => onSubmit(e)}/>
         <Link to="/home">Go Back</Link>
       </form>
     </StyledForm>

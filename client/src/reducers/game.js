@@ -1,7 +1,11 @@
-import { GET_GAME, GAMES_FAIL} from "../actions/constants";
+import { GET_GAME } from "../actions/constants";
 
 const initialState = {
-   
+   name:'',
+   released:'',
+   background_image:'',
+   rating:0,
+   platforms: '',
    loading: true,
    error:{}
 }
@@ -15,11 +19,7 @@ export default function( state= initialState, action ) {
             ...state,
             loading: false
          }
-      case GAMES_FAIL:
-         return {
-            ...state,
-            loading: false
-         }
+
       default:
          return state;
    }

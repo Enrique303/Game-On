@@ -66,7 +66,7 @@ const Register = (props) => {
   };
 
   if (props.isAuth) {
-    return <Redirect to ="/home"/>;
+    return <Redirect to ="/profile"/>;
   }
 
   return (

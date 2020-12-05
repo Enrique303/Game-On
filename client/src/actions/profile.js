@@ -37,7 +37,7 @@ export const createProfile = (formInfo, history, edit = false) => async dispatch
    } catch (err) {
       const errors = err.response.data.errors;
       if (errors) {
-         errors.forEach(error => dispatch(setAlert(error.msg,)))
+         errors.forEach((error) => dispatch(setAlert(error.msg)))
       }
       dispatch({
          type: PROFILE_FAIL,
