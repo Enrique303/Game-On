@@ -11,6 +11,5 @@ export default function(state = initialState, action){
       return state.filter(alert => alert.id !== action.payload);
     default:
       return state
-      break;
   }
 }

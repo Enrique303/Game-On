@@ -3,7 +3,7 @@ import { GET_GAME, GAMES_FAIL } from './constants';
 
 export const searchGames = () => async dispatch => {
    try {
-      const res = await axios.get('https://api.rawg.io/api/games?search-term');
+      const res = await axios.get('/api/games/:name');
 
       dispatch({
          type: GET_GAME,

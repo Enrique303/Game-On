@@ -71,7 +71,7 @@ button {
 `;
 
 const Profile = ({ createProfile, history }) => {
-  const [formInfo, setFormInfo] = useState({
+  const [formInfo, setformInfo] = useState({
     bio: '',
     location: '', 
     games: '', 
@@ -93,7 +93,7 @@ const Profile = ({ createProfile, history }) => {
     instagram
   } = formInfo;
 
-  const onChange = e => setFormInfo({...formInfo, [e.target.name]: e.target.value });
+  const onChange = e => setformInfo({...formInfo, [e.target.name]: e.target.value });
   const onSubmit = e =>{
     e.prevent.Default();
     createProfile(formInfo, history);
