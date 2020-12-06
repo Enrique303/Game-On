@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { GET_GAME, GAMES_FAIL } from './constants';
 
-export const searchGames = () => async dispatch => {
+export const searchGames = name => async dispatch => {
    try {
-      const res = await axios.get('/api/games/:name');
+      const res = await axios.get(`/api/games/${name}`);
 
       dispatch({
          type: GET_GAME,

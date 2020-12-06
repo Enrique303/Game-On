@@ -2,7 +2,8 @@ import { GET_GAME, GAMES_FAIL } from "../actions/constants";
 
 const initialState = {
    results:[],
-   loading: true
+   loading: true,
+   error:{}
 }
 
 export default function( state= initialState, action ) {

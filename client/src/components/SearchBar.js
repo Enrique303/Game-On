@@ -35,17 +35,15 @@ outline: 0;
 `;
 
 
-const SearchBar = () => {
-  const [searchInfo, setSearchInfo] = useState()
+const SearchBar = ( { searchGames } ) => {
+  const [searchInfo, setSearchInfo] = useState({game:''})
 
   useEffect(() => {
     searchGames()
   }, [])
   
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setSearchInfo({...searchInfo, [name]: value})
-  };
+  const { game } = searchInfo
+  const onChange = e => setSearchInfo({...searchInfo, [e.target.name]: e.target.value });
 
   const onClick = e =>{
     searchGames(searchInfo);
@@ -56,7 +54,7 @@ const SearchBar = () => {
     <StyleSearchBar>
       <header>
         <div className='search-box'>
-          <input className='form-control' id='searchStr' placeholder='Search' name="search"  onChange={handleInputChange} />
+          <input className='form-control' id='searchStr' placeholder='Search' name="game" value={game} onChange={e => onChange(e)} />
           <button className='btn' type='button' onClick={e => onClick(e)}><i className='fas fa-search'></i></button>
         </div>
       </header>
@@ -67,5 +65,6 @@ const SearchBar = () => {
 SearchBar.propTypes = {
   searchGames: PropTypes.func.isRequired
 }
+
 
 export default connect(null,{searchGames})(SearchBar);
