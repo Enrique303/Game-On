@@ -42,12 +42,11 @@ const SearchBar = ( { searchGames } ) => {
     searchGames()
   }, [])
   
-  const { game } = searchInfo
+  const { game, } = searchInfo
   const onChange = e => setSearchInfo({...searchInfo, [e.target.name]: e.target.value });
 
   const onClick = e =>{
-    searchGames(searchInfo);
-    console.log(searchInfo);
+    searchGames(searchInfo.game);
   };
 
   return (
