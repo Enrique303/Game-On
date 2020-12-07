@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import img from '../img/retrocontroller.jpg'
+import img from '../img/games.jpg'
 
 const StyledLanding = styled.div`
   .landing {
@@ -11,7 +11,14 @@ const StyledLanding = styled.div`
     height: 100vh;
     font-family: 'Roboto', sans-serif;
   }
-  ${img} {opacity: 0.5;}
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
   .landing-inner {
     height: 100%;
     width: 80%;
@@ -45,6 +52,9 @@ const StyledLanding = styled.div`
     transition: opacity 0.2s ease-in;
     outline: none;
   }
+  a:hover {
+    background-color: #1565C0;
+  }
   @media all and (max-width: 600px) {  
      
   }
@@ -54,7 +64,7 @@ const Landing = () => {
   return (
     <StyledLanding>
       <section className= "landing">
-        <div>
+        <div className="overlay">
           <div className= "landing-inner">
             <h1>Game On</h1>
             <p className = "lead">

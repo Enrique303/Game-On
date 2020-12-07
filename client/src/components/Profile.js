@@ -68,6 +68,13 @@ button {
   transition: opacity 0.2s ease-in;
   outline: none;
 }
+.heading {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  padding:1.2rem;
+  color: #343a40;
+}
 `;
 
 const Profile = ({ createProfile, history }) => {
@@ -80,8 +87,6 @@ const Profile = ({ createProfile, history }) => {
     twitch: '', 
     instagram: '',
   });
-
-  const [displaySocial, toggleSocial] = useState(false);
 
   const {
     bio,
@@ -101,7 +106,8 @@ const Profile = ({ createProfile, history }) => {
   };
   return (
     <StyledForm>
-      <form className="form">
+      <form className="form" onSubmit={e => onSubmit(e)} >
+      <h1 className='heading'>Create Your Profile</h1>
         <div className="form-group">
           <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e => onChange(e)}></textarea>
           <small className="form-text">Tell us a little about yourself</small>
@@ -119,13 +125,6 @@ const Profile = ({ createProfile, history }) => {
             Zelda, Halo, Last of Us, Sonic)
           </small>
         </div>
-        <div>
-          <button onClick={() => toggleSocial(!displaySocial)}type="button" className="btn">
-            Add Social Network Links
-          </button>
-          <span>Optional</span>
-        </div>
-        {displaySocial && <>
           <div className="form-group social-input">
             <i className="fab fa-youtube fa"></i>
             <input type="text" placeholder="YouTube URL" name="youtube" value={youtube} onChange={e => onChange(e)}/>
@@ -142,10 +141,7 @@ const Profile = ({ createProfile, history }) => {
             <i className="fab fa-instagram fa"></i>
             <input type="text" placeholder="Instagram URL" name="instagram" value={instagram} onChange={e => onChange(e)}/>
           </div>
-        </>
-        }
-        
-        <input type="submit" className="btn" onSubmit={e => onSubmit(e)}/>
+        <input type="submit" className="btn" />
         <Link to="/home">Go Back</Link>
       </form>
     </StyledForm>

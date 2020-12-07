@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Loading from './Loading'
 import { getUserProfile } from '../actions/profile';
@@ -11,12 +12,23 @@ const Home = ({ getUserProfile, auth:{user}, profile: {profile, loading} }) => {
   },[]); 
 
   
-  return loading && profile === null ? <Loading /> : (<>
-    <p className='main'>Welcome {user && user.name}</p>
-    <SearchBar/>
+  return loading && profile === null ? (
+  <Loading /> 
+  ) : (
+    <>
+      <SearchBar /> 
+      <p className='main'>Welcome {user && user.name}</p>
+      {profile !== null ? (
+        <>has</>
+      ) : (
+        <>
+        <p>Set up your profile</p>
+        <Link to='/profile' className='btn'> Create Profile</Link>
+        </>
+      )}
     </>
-  )
-}
+  );
+};
 
 
 Home.propTypes = {

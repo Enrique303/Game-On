@@ -16,7 +16,9 @@ const StyledNav = styled.div`
   justify-content: flex-end;
   list-style: none;
   margin: 0; 
-  background: #707070;
+  background: #343a40;
+  opacity:0.9;
+  border-bottom: solid 1px #dc3545;
 }
 .navigation a {
   text-decoration: none;

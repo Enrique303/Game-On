@@ -28,8 +28,8 @@ const App = () => {
     <Provider store ={store}>
       <Router>
         <Fragment>
-          <Route exact path="/" component= { Landing  } />
           <Navbar />
+          <Route exact path="/" component= { Landing  } />
           <Alert />
           <Switch>
             <Route exact path='/login' component={ Login } />

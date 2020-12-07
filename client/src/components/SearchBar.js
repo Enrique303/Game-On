@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 const StyleSearchBar = styled.div`
   header{
-background: lightgray;
+background: #fff;
 padding: 20px;
 }
 .search-box{
@@ -18,6 +18,7 @@ overflow: hidden;
 .search-box .form-control{
 width:100%;
 border: 0;
+border-bottom: solid 1px #dc3545;
 height: 36px;
 padding:0 10px;
 outline: 0;
@@ -35,7 +36,7 @@ outline: 0;
 `;
 
 
-const SearchBar = ( { searchGames, results:{name,} } ) => {
+const SearchBar = ( { searchGames, results } ) => {
   const [searchInfo, setSearchInfo] = useState({game:''});
 
   useEffect(() => {
@@ -65,10 +66,8 @@ const SearchBar = ( { searchGames, results:{name,} } ) => {
 SearchBar.propTypes = {
   searchGames: PropTypes.func.isRequired
 }
-const mapStateToProps = (state) =>{
-  return {
-    results = state.results
-  }
-}
+const mapStateToProps = (state) =>({
+    results: state.results
+})
 
 export default connect(mapStateToProps,{searchGames})(SearchBar);
