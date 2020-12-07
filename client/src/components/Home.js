@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Loading from './Loading'
 import { getUserProfile } from '../actions/profile';

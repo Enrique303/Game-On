@@ -35,14 +35,14 @@ outline: 0;
 `;
 
 
-const SearchBar = ( { searchGames } ) => {
-  const [searchInfo, setSearchInfo] = useState({game:''})
+const SearchBar = ( { searchGames, results:{name,} } ) => {
+  const [searchInfo, setSearchInfo] = useState({game:''});
 
   useEffect(() => {
     searchGames()
   }, [])
   
-  const { game, } = searchInfo
+  const { game } = searchInfo
   const onChange = e => setSearchInfo({...searchInfo, [e.target.name]: e.target.value });
 
   const onClick = e =>{
@@ -56,6 +56,7 @@ const SearchBar = ( { searchGames } ) => {
           <input className='form-control' id='searchStr' placeholder='Search' name="game" value={game} onChange={e => onChange(e)} />
           <button className='btn' type='button' onClick={e => onClick(e)}><i className='fas fa-search'></i></button>
         </div>
+        {/* {games.map(game => <GameComponent ...game/>)} */}
       </header>
     </StyleSearchBar>
   )
@@ -64,6 +65,10 @@ const SearchBar = ( { searchGames } ) => {
 SearchBar.propTypes = {
   searchGames: PropTypes.func.isRequired
 }
+const mapStateToProps = (state) =>{
+  return {
+    results = state.results
+  }
+}
 
-
-export default connect(null,{searchGames})(SearchBar);
+export default connect(mapStateToProps,{searchGames})(SearchBar);
