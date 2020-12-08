@@ -15,21 +15,25 @@ const StyledTop = styled.div`
   margin-bottom: 1rem;
 }
 .icons {
-  padding: 0.5rem;
+  padding: 1rem;
   width: 4rem;
 }
 
 .fa-twitch {
   color: #9147fe;
+  padding: 0.5rem;
 }
 .fa-twitter {
   color: #38a1f3;
+  padding: 0.5rem;
 }
 .fa-instagram {
   color: #3f729b;
+  padding: 0.5rem;
 }
 .fa-youtube {
   color: #c4302b;
+  padding: 0.5rem;
 }
 .large {
     font-size: 2rem;

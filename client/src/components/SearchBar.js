@@ -132,6 +132,11 @@ const SearchBar = ({ searchGames, results }) => {
   const onClick = e => {
     searchGames(searchInfo.game);
   };
+
+  // saveGame = (id) => {
+  //   const save = results.results.find(() => results.id === id);
+  // };
+
   return (
     <StyleSearchBar>
       <header>

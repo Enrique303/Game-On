@@ -11,7 +11,7 @@ const Profile = ({ getUserProfile, profile: { profile, loading }, auth}) => {
   }, []);
   return <>
   { profile === null || loading ? <Loading/> : <>
-    <h1 className= 'my-profile'> My Profile</h1>
+    <h1 className= 'my-profile'></h1>
     <div className='profiles'>
       <ProfileItem key={profile.id} profile={profile} />
     </div>
