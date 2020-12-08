@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { searchGames } from '../actions/games';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -88,6 +89,11 @@ img {
 .cards-wrap .card-bottom .card-store {
   text-align: center;
 }
+li{
+  color: #0071bc;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
 
 @media (max-width: 1024px) {
   .cards-wrap .card-item {
@@ -134,7 +140,7 @@ const SearchBar = ({ searchGames, results }) => {
           <button className='btn' type='button' onClick={e => onClick(e)}><i className='fas fa-search'></i></button>
         </div>
         <div>
-          {/* {results.results.map(result => (
+          {results.results.map(result => (
             <div key={result.id} className='wrapper'>
               <div className="cards-wrap">
                 <div className="card-item">
@@ -145,16 +151,27 @@ const SearchBar = ({ searchGames, results }) => {
                     <div className="card-bottom">
                       <div className="card-category">{result.name}</div>
                       <div className="card-info">
+                        <li>
+                          Metacritic Rating: {result.metacritic}
+                        </li>
+                        <li>
+                          Release Date: {result.released}
+                        </li>
+                        <li>
+                          Watch Clip: <Link to={result.clip} target='_blank'>here</Link>
+                        </li>
                         <p className="title">Available on these platforms</p>
                       </div>
-                      <div className="card-store"></div>
+                      <div class="card-action">
+                        <button className="btn"><i className="fa fa-add">Add to List</i></button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           ))
-          } */}
+          }
           </div>
       </header>
     </StyleSearchBar>
