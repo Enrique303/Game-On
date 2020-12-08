@@ -1,4 +1,4 @@
-# Game-On# 
+# Game-On
 
 ## Table of Contents
 ---
