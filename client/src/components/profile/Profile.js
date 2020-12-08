@@ -5,22 +5,15 @@ import Loading from '../Loading';
 import { getUserProfile } from '../../actions/profile';
 import ProfileItem from './ProfileItem'
 
-const Profile = ({ getUserProfile, profile: { profiles, loading }}) => {
+const Profile = ({ getUserProfile, profile: { profile, loading }, auth}) => {
   useEffect(() => {
     getUserProfile();
   }, []);
-
   return <>
-  { loading ? <Loading/> : <>
-    <h1> My Profile</h1>
+  { profile === null || loading ? <Loading/> : <>
+    <h1 className= 'my-profile'> My Profile</h1>
     <div className='profiles'>
-      {profiles.length > 0 ? (
-        profiles.map(profile => (
-          <ProfileItem key={profile._id} profile={profile} />
-        ))
-      ) : (
-        <h4>No profile found...</h4>
-      )}
+      <ProfileItem key={profile.id} profile={profile} />
     </div>
   </>}
   </>
@@ -29,10 +22,12 @@ const Profile = ({ getUserProfile, profile: { profiles, loading }}) => {
 Profile.propTypes = {
   getUserProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state =>({
-  profile: state.profile
+  profile: state.profile,
+  auth: state.auth
 })
 
 export default connect(mapStateToProps, { getUserProfile })(Profile)

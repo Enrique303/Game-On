@@ -100,7 +100,7 @@ const Profile = ({ createProfile, history }) => {
 
   const onChange = e => setformInfo({...formInfo, [e.target.name]: e.target.value });
   const onSubmit = e =>{
-    e.prevent.Default();
+    // e.prevent.Default();
     createProfile(formInfo, history);
     <Redirect to= '/home'/>
   };

@@ -72,7 +72,7 @@ const Navbar = ({ auth:{isAuth, loading}, logout }) => {
             <Link to='/home'>Home</Link>
           </li>
           <li>
-            <Link to='/myprofile'>My List</Link>
+            <Link to='/list'>My List</Link>
           </li>
           <li>
             <Link to='/myprofile'>My Profile</Link>

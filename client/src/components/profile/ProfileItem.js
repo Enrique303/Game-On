@@ -14,8 +14,8 @@ const Profile = ({
   match
 }) => {
   useEffect(() => {
-    getUserProfile(match.params.id);
-  }, [getUserProfile, match.params.id]);
+    getUserProfile();
+  }, [getUserProfile]);
 
   return (
     <Fragment>
