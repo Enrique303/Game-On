@@ -19,7 +19,7 @@ const Home = ({ getUserProfile, auth:{user}, profile: {profile, loading} }) => {
       <SearchBar /> 
       <p className='main'>Welcome {user && user.name}</p>
       {profile !== null ? (
-        <>has</>
+        <></>
       ) : (
         <>
         <p>Set up your profile</p>
