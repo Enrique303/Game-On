@@ -119,7 +119,7 @@ const Profile = ({ createProfile, history }) => {
           </small>
         </div>
         <div className="form-group">
-          <input type="text" placeholder="* Games" name="games" value={games} onChange={e => onChange(e)} />
+          <input type="text" placeholder="* Favorite Games" name="games" value={games} onChange={e => onChange(e)} />
           <small className="form-text"
             >Please use comma separated values (eg.
             Zelda, Halo, Last of Us, Sonic)

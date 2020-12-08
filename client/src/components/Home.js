@@ -9,7 +9,7 @@ import SearchBar from './SearchBar';
 const Home = ({ getUserProfile, auth:{user}, profile: {profile, loading} }) => {
   useEffect(()=>{
     getUserProfile();
-  },[]); 
+  },[getUserProfile]); 
 
   
   return loading && profile === null ? (

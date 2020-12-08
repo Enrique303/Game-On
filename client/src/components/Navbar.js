@@ -78,7 +78,7 @@ const Navbar = ({ auth:{isAuth, loading}, logout }) => {
             <Link to='/myprofile'>My Profile</Link>
           </li>
           <li>
-            <a onClick={logout} href="#">Logout</a>
+            <Link onClick={logout} to='/'>Logout</Link>
           </li>
         </ul>
   );

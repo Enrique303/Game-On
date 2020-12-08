@@ -36,20 +36,20 @@ outline: 0;
 `;
 
 
-const SearchBar = ( { searchGames, results } ) => {
-  const [searchInfo, setSearchInfo] = useState({game:''});
+const SearchBar = ({ searchGames, results }) => {
+  const [searchInfo, setSearchInfo] = useState({ game: '' });
+  console.log(results)
 
   useEffect(() => {
     searchGames()
-  }, [])
-  
-  const { game } = searchInfo
-  const onChange = e => setSearchInfo({...searchInfo, [e.target.name]: e.target.value });
+  }, [ searchGames ])
 
-  const onClick = e =>{
+  const { game } = searchInfo
+  const onChange = e => setSearchInfo({ ...searchInfo, [e.target.name]: e.target.value });
+
+  const onClick = e => {
     searchGames(searchInfo.game);
   };
-
   return (
     <StyleSearchBar>
       <header>
@@ -57,17 +57,27 @@ const SearchBar = ( { searchGames, results } ) => {
           <input className='form-control' id='searchStr' placeholder='Search' name="game" value={game} onChange={e => onChange(e)} />
           <button className='btn' type='button' onClick={e => onClick(e)}><i className='fas fa-search'></i></button>
         </div>
-        {/* {games.map(game => <GameComponent ...game/>)} */}
+        <div>
+          {/* {results.map(result =>(
+              <div key={result.id}>
+                <div>
+                  <h3>
+                    {result.name}
+                  </h3>
+                </div>
+              </div>
+            ))
+          } */}
+        </div>
       </header>
     </StyleSearchBar>
   )
 }
-
 SearchBar.propTypes = {
-  searchGames: PropTypes.func.isRequired
+  searchGames: PropTypes.func.isRequired,
 }
-const mapStateToProps = (state) =>({
-    results: state.results
+const mapStateToProps = (state) => ({
+  results: state.game.results,
 })
 
-export default connect(mapStateToProps,{searchGames})(SearchBar);
+export default connect(mapStateToProps, { searchGames })(SearchBar);

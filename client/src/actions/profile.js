@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { setAlert } from './alert';
-import { CLEAR_PROFILE, GET_PROFILE, PROFILE_FAIL, ACCOUNT_DELETE } from './constants';
+import { CLEAR_PROFILE, GET_PROFILE, PROFILE_FAIL, ACCOUNT_DELETE, GET_PROFILES } from './constants';
 
 export const getUserProfile = () => async dispatch => {
    try {
@@ -13,7 +13,7 @@ export const getUserProfile = () => async dispatch => {
    } catch (err) {
       dispatch({
          type: PROFILE_FAIL,
-         payload: { msg: err.response.statusText, status: err.response.status }
+         payload: { status: err.response }
       });
    }
 }
@@ -46,10 +46,26 @@ export const createProfile = (formInfo, history, edit = false) => async dispatch
    }
 }
 
+export const getProfiles = () => async dispatch => {
+   try {
+      const res = await axios.get('/api/profile/');
+
+      dispatch({
+         type: GET_PROFILES,
+         payload: res.data,
+      });
+   } catch (err) {
+      dispatch({
+         type: PROFILE_FAIL,
+         payload: { msg: err.response.statusText, status: err.response.status }
+      });
+   }
+}
+
 export const deleteAccount = () => async dispatch => {
    if (window.confirm('Delete Account?')) {
       try {
-         const res= await axios.delete('/api/profile');
+         await axios.delete('/api/profile');
 
          dispatch({ type: CLEAR_PROFILE });
          dispatch({ type: ACCOUNT_DELETE });
