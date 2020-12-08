@@ -134,7 +134,7 @@ const SearchBar = ({ searchGames, results }) => {
           <button className='btn' type='button' onClick={e => onClick(e)}><i className='fas fa-search'></i></button>
         </div>
         <div>
-          {results.results.map(result => (
+          {/* {results.results.map(result => (
             <div key={result.id} className='wrapper'>
               <div className="cards-wrap">
                 <div className="card-item">
@@ -154,7 +154,7 @@ const SearchBar = ({ searchGames, results }) => {
               </div>
             </div>
           ))
-          }
+          } */}
           </div>
       </header>
     </StyleSearchBar>
