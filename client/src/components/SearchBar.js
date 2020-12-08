@@ -38,7 +38,7 @@ outline: 0;
 
 const SearchBar = ({ searchGames, results }) => {
   const [searchInfo, setSearchInfo] = useState({ game: '' });
-  console.log(results)
+  console.log(results.results)
 
   useEffect(() => {
     searchGames()
@@ -58,7 +58,7 @@ const SearchBar = ({ searchGames, results }) => {
           <button className='btn' type='button' onClick={e => onClick(e)}><i className='fas fa-search'></i></button>
         </div>
         <div>
-          {/* {results.map(result =>(
+          {/* {results.results.map(result =>(
               <div key={result.id}>
                 <div>
                   <h3>

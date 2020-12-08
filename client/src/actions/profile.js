@@ -11,6 +11,7 @@ export const getUserProfile = () => async dispatch => {
          payload: res.data,
       });
    } catch (err) {
+      dispatch({ type: CLEAR_PROFILE });
       dispatch({
          type: PROFILE_FAIL,
          payload: { status: err.response }
